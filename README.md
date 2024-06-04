@@ -14,16 +14,20 @@
     \q
 
 ### user creation
-    sudo -u postgres createuser --interactive \n psql  (or)  sudo -u postgres psql
+    sudo -u postgres createuser --interactive \n psql  
     
-    sudo -i -u postgres
+                    (or)  
+    
+    sudo -u postgres psql
     CREATE USER <user_name> WITH PASSWORD '<password>';
 
     vi /etc/postgresql/14/main/pg_hba.conf 
     
 ### change like this 
-          # "local" is for Unix domain socket connections only
-          # Change "peer" to "md5" for password authentication
-          local   all             all                                     md5
+    # "local" is for Unix domain socket connections only
+    # Change "peer" to "md5" for password authentication
+    local   all             all                                     md5
 
+### Setting password for postgres root user
 
+    ALTER USER postgres PASSWORD 'postgres';
